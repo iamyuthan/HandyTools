@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">URI Encode</p>
+<span id="halgmURI"></span>
+<script>
+var GET = {};
+var query = window.location.search.substring(1);
+var param = query.split("=");
+var halgm1 = decodeURIComponent(param[1]);
+var halgm2 = encodeURIComponent(halgm1);
+document.querySelector('#halgmURI').innerHTML = halgm2;
+</script>
+</body>
+</html>
