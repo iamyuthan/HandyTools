@@ -13,19 +13,14 @@
       {
         var GET = {};
         var query = window.location.search.substring(1);
-        for (var i = 0, max = query.length; i < max; i++)
-        {
-          if (query[i] === "")
-            continue;
-          var param = query[i].split("=");
-          var cutch1 = decodeURIComponent(param[1]);          
-          var cutch2 = cutch1.replace(/"/g,'');          
-          var cutch3 = cutch2.replace(/{/g,'');
-          var cutch4 = cutch3.replace(/}/g,'');
-          document.querySelector('#cutchar').innerHTML = cutch4;
-          const subject = document.querySelector('#subject');
-          subject.insertAdjacentHTML('beforeend', cutch4);
-        }
+        var param = query.split("=");
+        var cutch1 = decodeURIComponent(param[1]);
+        var cutch2 = cutch1.replace(/"/g,'');         
+        var cutch3 = cutch2.replace(/{/g,'');
+        var cutch4 = cutch3.replace(/}/g,'');
+        document.querySelector('#cutchar').innerHTML = cutch4;
+        const subject = document.querySelector('#subject');
+        subject.insertAdjacentHTML('beforeend', cutch4);
       }
     </script>
   </body>
