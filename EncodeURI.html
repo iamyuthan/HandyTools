@@ -11,7 +11,7 @@ if (query[i] === "")
 continue;
 var param = query[i].split("=");
 var halgm1 = decodeURIComponent(param[1]);
-var halgm2 = encodeURIComponent(halgm1)+"%3D%3D";
+var halgm2 = encodeURIComponent(halgm1);
 document.querySelector('#halgmURI').innerHTML = halgm2;
 }
 </script>
