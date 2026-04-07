@@ -24,6 +24,13 @@ Public Sub live_SilentWait()
         filePath = folderPath & "\Text_" & counter & ".txt"
         
         fso.CreateFolder folderPath
+        
+        ' ========================================
+        '  WAIT 30 SECONDS (Silently)
+        ' ========================================
+        Application.Wait Now + TimeValue("00:01:00")
+        DoEvents
+
         Set ts = fso.CreateTextFile(filePath, True)
         ts.WriteLine "Created at : " & Format(Now, "dd-mmm-yyyy hh:nn:ss AM/PM")
         ts.Close
@@ -49,8 +56,9 @@ Public Sub live_SilentWait()
         ' ========================================
         '  STEP 4 : Delete File & Folder
         ' ========================================
-        fso.DeleteFile filePath
-        fso.DeleteFolder folderPath
+        If fso.FolderExists(folderPath) Then
+        fso.DeleteFolder folderPath, TRUE
+        End If
         
         ' ========================================
         '  STEP 5 : 10-SECOND Notification (Deletion)
